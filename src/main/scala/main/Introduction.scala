@@ -42,11 +42,15 @@ object Introduction {
   def filterPositionList(arr: List[Int]): List[Int] = {
     def loop(iter: Int, arr: List[Int]): List[Int] =
       if (arr.isEmpty) arr
-      else if (iter % 2 == 1) List(arr.head)  :::loop(iter + 1, arr.tail)
+      else if (iter % 2 == 1) arr.head :: loop(iter + 1, arr.tail)
       else loop(iter + 1, arr.tail)
 
     loop(0, arr)
   }
+
+  def updateList(arr: List[Int]): List[Int] =
+    if (arr.isEmpty) arr else if (arr.head < 0) -arr.head :: updateList(arr.tail)
+    else arr.head :: updateList(arr.tail)
 
 
 }
