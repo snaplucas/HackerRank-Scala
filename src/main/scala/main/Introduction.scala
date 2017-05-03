@@ -39,5 +39,14 @@ object Introduction {
     else if (arr.head < delim) List(arr.head) ::: filterArray3(delim, arr.tail)
     else filterArray3(delim, arr.tail)
 
+  def filterPositionList(arr: List[Int]): List[Int] = {
+    def loop(iter: Int, arr: List[Int]): List[Int] =
+      if (arr.isEmpty) arr
+      else if (iter % 2 == 1) List(arr.head)  :::loop(iter + 1, arr.tail)
+      else loop(iter + 1, arr.tail)
+
+    loop(0, arr)
+  }
+
 
 }
