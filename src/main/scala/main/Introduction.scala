@@ -52,5 +52,9 @@ object Introduction {
     if (arr.isEmpty) arr else if (arr.head < 0) -arr.head :: updateList(arr.tail)
     else arr.head :: updateList(arr.tail)
 
+  def arrayOfN(num: Int): List[Int] = (for (i <- 1 to num) yield i).toList
+
+  def arrayOfN2(num: Int): List[Int] = (1 to num).toList
+
 
 }
