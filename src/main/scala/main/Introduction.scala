@@ -3,7 +3,9 @@ package main
 object Introduction {
 
   def main(args: Array[String]): Unit = {
-    println(sumOdds2(List(3, 2, 4, 6, 5, 7, 8, 0, 1)))
+    //    println(sumOdds2(List(3, 2, 4, 6, 5, 7, 8, 0, 1)))
+
+    println(reverseList(List(1, 2, 3)))
   }
 
   def listReplication1(num: Int, arr: List[Int]): List[Int] = {
@@ -56,5 +58,9 @@ object Introduction {
 
   def arrayOfN2(num: Int): List[Int] = (1 to num).toList
 
+  def reverseList(arr: List[Int]): List[Int] = arr match {
+    case head :: tail => reverseList(tail) ::: List(head)
+    case Nil => Nil
+  }
 
 }
