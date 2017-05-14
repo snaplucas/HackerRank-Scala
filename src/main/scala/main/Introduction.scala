@@ -19,7 +19,7 @@ object Introduction {
     }
   }
 
-  def listReplication2(num: Int, arr: List[Int]): List[Int] = for {e <- arr; _ <- 1 to num} yield e
+  def listReplication2(num: Int, arr: List[Int]) = for {e <- arr; _ <- 1 to num} yield e
 
   def sumOdds(arr: List[Int]): Int = {
     def loop(sum: Int, arr: List[Int]): Int =
@@ -32,9 +32,9 @@ object Introduction {
 
   def sumOdds2(arr: List[Int]): Int = arr.filter(a => a % 2 == 1).sum
 
-  def filterArray1(delim: Int, arr: List[Int]): List[Int] = arr.filter(a => a < delim)
+  def filterArray1(delim: Int, arr: List[Int]) = arr.filter(a => a < delim)
 
-  def filterArray2(delim: Int, arr: List[Int]): List[Int] = for (e <- arr if e < delim) yield e
+  def filterArray2(delim: Int, arr: List[Int]) = for (e <- arr if e < delim) yield e
 
   def filterArray3(delim: Int, arr: List[Int]): List[Int] =
     if (arr.isEmpty) List()
