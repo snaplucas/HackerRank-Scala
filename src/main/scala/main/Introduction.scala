@@ -3,8 +3,6 @@ package main
 object Introduction {
 
   def main(args: Array[String]): Unit = {
-    //    println(sumOdds2(List(3, 2, 4, 6, 5, 7, 8, 0, 1)))
-
     println(reverseList(List(1, 2, 3)))
   }
 
