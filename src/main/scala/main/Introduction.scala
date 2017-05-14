@@ -2,7 +2,7 @@ package main
 
 object Introduction {
 
-  def main(args: Array[String]): Unit = {
+  def main(args: Array[String]) = {
     println(reverseList(List(1, 2, 3)))
   }
 
