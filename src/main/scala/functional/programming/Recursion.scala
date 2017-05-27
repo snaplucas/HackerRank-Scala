@@ -1,4 +1,4 @@
-package main
+package functional.programming
 
 object Recursion {
 
