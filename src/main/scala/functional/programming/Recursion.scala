@@ -5,7 +5,7 @@ object Recursion {
   def main(args: Array[String]): Unit = {
     println(fibonacci(5))
 
-    println(stringMingling("abcde", "pqrst"))
+    println(stringMinglingV2("abcde", "pqrst"))
   }
 
   def gcd(x: Int, y: Int): Int = if (y == 0) x else gcd(y, x % y)
@@ -25,5 +25,5 @@ object Recursion {
     else stringMingling(p.tail, q.tail, acc + p.head + q.head)
   }
 
-  def stringMingLingV2(p: String, q: String) = p.toList.zip(q.toList).map(t => t._1 + "" + t._2).mkString
+  def stringMinglingV2(p: String, q: String) = p.toList.zip(q.toList).flatMap(x => x._1 + "" + x._2).mkString
 }
