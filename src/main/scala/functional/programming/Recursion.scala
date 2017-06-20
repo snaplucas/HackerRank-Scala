@@ -24,4 +24,6 @@ object Recursion {
     if (p.isEmpty) acc
     else stringMingling(p.tail, q.tail, acc + p.head + q.head)
   }
+
+  def stringMingLingV2(p: String, q: String) = p.toList.zip(q.toList).map(t => t._1 + "" + t._2).mkString
 }
