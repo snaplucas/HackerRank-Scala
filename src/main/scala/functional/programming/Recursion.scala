@@ -38,4 +38,9 @@ object Recursion {
     case Nil => ""
     case xa :: xb :: x => xb + "" + xa + stringPermute(x)
   }
+
+  def stringPermuteV2(input: Vector[Char], res: Vector[Char]): String = {
+    if (input.length >= 2) swap(input.drop(2), res ++ input.take(2).reverse)
+    else res.mkString("")
+  }
 }
