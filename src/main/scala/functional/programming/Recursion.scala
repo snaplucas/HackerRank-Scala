@@ -40,7 +40,7 @@ object Recursion {
   }
 
   def stringPermuteV2(input: Vector[Char], res: Vector[Char]): String = {
-    if (input.length >= 2) swap(input.drop(2), res ++ input.take(2).reverse)
+    if (input.length >= 2) stringPermuteV2(input.drop(2), res ++ input.take(2).reverse)
     else res.mkString("")
   }
 }
