@@ -3,9 +3,16 @@ package functional.programming
 object Recursion {
 
   def main(args: Array[String]): Unit = {
-    println(fibonacci(5))
+    //    println(fibonacci(5))
+    //
+    //    println(stringMinglingV2("abcde", "pqrst"))
 
-    println(stringMinglingV2("abcde", "pqrst"))
+    println(stringPermute("abcdpqrs".toList))
+
+    var x = 0
+    for (x <- 10) {
+
+    }
   }
 
   def gcd(x: Int, y: Int): Int = if (y == 0) x else gcd(y, x % y)
@@ -26,4 +33,9 @@ object Recursion {
   }
 
   def stringMinglingV2(p: String, q: String) = p.toList.zip(q.toList).flatMap(x => x._1 + "" + x._2).mkString
+
+  def stringPermute(s: List[Char]): String = s match {
+    case Nil => ""
+    case xa :: xb :: x => xb + "" + xa + stringPermute(x)
+  }
 }
