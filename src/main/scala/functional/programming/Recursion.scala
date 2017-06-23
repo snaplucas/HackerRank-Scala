@@ -3,16 +3,11 @@ package functional.programming
 object Recursion {
 
   def main(args: Array[String]): Unit = {
-    //    println(fibonacci(5))
-    //
-    //    println(stringMinglingV2("abcde", "pqrst"))
+    println(fibonacci(5))
+
+    println(stringMinglingV2("abcde", "pqrst"))
 
     println(stringPermute("abcdpqrs".toList))
-
-    var x = 0
-    for (x <- 10) {
-
-    }
   }
 
   def gcd(x: Int, y: Int): Int = if (y == 0) x else gcd(y, x % y)
@@ -39,8 +34,7 @@ object Recursion {
     case xa :: xb :: x => xb + "" + xa + stringPermute(x)
   }
 
-  def stringPermuteV2(input: Vector[Char], res: Vector[Char]): String = {
+  def stringPermuteV2(input: Vector[Char], res: Vector[Char]): String =
     if (input.length >= 2) stringPermuteV2(input.drop(2), res ++ input.take(2).reverse)
     else res.mkString("")
-  }
 }
