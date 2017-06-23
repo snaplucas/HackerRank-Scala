@@ -4,8 +4,9 @@ object Strings {
 
   def main(args: Array[String]) {
 
-    println(hackerRankInAString("hackerrank".toList))
-
+    println(if(hackerRankInAString("hacakaeararanaka".toList)) "YES" else "NO")
+    println(if(hackerRankInAString("hhhhaaaaackkkkerrrrrrrrank".toList)) "YES" else "NO")
+    println(if(hackerRankInAString("crackerhackerknar".toList)) "YES" else "NO")
   }
 
   val indices = Vector('h', 'a', 'c', 'k', 'e', 'r', 'r', 'a', 'n', 'k')
@@ -13,7 +14,7 @@ object Strings {
   def hackerRankInAString(s: List[Char]) = {
     def hackerrank(s: List[Char], acc: Int): Boolean = {
       if (s.isEmpty) acc == 10
-      else if (s.head == indices(acc)) hackerrank(s.tail, acc + 1)
+      else if (s.head == indices(acc)) acc == 9 || hackerrank(s.tail, acc + 1)
       else hackerrank(s.tail, acc)
     }
 
