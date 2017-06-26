@@ -4,9 +4,9 @@ object Strings {
 
   def main(args: Array[String]) {
 
-    println(if(hackerRankInAString("hacakaeararanaka".toList)) "YES" else "NO")
-    println(if(hackerRankInAString("hhhhaaaaackkkkerrrrrrrrank".toList)) "YES" else "NO")
-    println(if(hackerRankInAString("crackerhackerknar".toList)) "YES" else "NO")
+    println(if (hackerRankInAString("hacakaeararanaka".toList)) "YES" else "NO")
+    println(if (hackerRankInAString("hhhhaaaaackkkkerrrrrrrrank".toList)) "YES" else "NO")
+    println(if (hackerRankInAString("crackerhackerknar".toList)) "YES" else "NO")
   }
 
   val indices = Vector('h', 'a', 'c', 'k', 'e', 'r', 'r', 'a', 'n', 'k')
@@ -20,4 +20,6 @@ object Strings {
 
     hackerrank(s, 0)
   }
+
+  def makingAnagrams(a: String, b: String) = {}
 }
