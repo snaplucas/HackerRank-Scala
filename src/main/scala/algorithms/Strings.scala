@@ -23,10 +23,26 @@ object Strings {
     hackerrank(s, 0)
   }
 
-  def gemStones(stones: List[List[Char]]) =
-    for {stone <- stones
-         gem <- stone
-         if stones.forall(a => a.forall(b => b == gem))} yield gem
+  val alphas = Vector('a', 'b', 'c', 'd')
 
-  def makingAnagrams(a: String, b: String) = {}
+  def gemStones(stones: List[List[Char]]) = {
+    def gem(stones: List[List[Char]], indice: Int, acc: Int): Int = {
+      if (stones.isEmpty) acc
+      else if (stones.forall(s => s.contains(alphas(indice)))) gem(stones.tail, indice + 1, acc + 1)
+      else gem(stones.tail, indice + 1, acc)
+    }
+
+    gem(stones, 0, 0)
+
+  }
+
+  def gemStones(args: Array[String]) {
+    val n = io.StdIn.readInt()
+    var dis = io.StdIn.readLine()
+    for (_ <- 2 to n) {
+      val s = io.StdIn.readLine()
+      dis = s.intersect(dis)
+    }
+    println(dis.length)
+  }
 }
