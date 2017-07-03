@@ -4,9 +4,9 @@ object Strings {
 
   def main(args: Array[String]) {
 
-    //    println(if (hackerRankInAString("hacakaeararanaka".toList)) "YES" else "NO")
-    //    println(if (hackerRankInAString("hhhhaaaaackkkkerrrrrrrrank".toList)) "YES" else "NO")
-    //    println(if (hackerRankInAString("crackerhackerknar".toList)) "YES" else "NO")
+    println(if (hackerRankInAString("hacakaeararanaka".toList)) "YES" else "NO")
+    println(if (hackerRankInAString("hhhhaaaaackkkkerrrrrrrrank".toList)) "YES" else "NO")
+    println(if (hackerRankInAString("crackerhackerknar".toList)) "YES" else "NO")
 
     println(gemStones(List("abcd".toList, "abef".toList, "abjj".toList)))
   }
