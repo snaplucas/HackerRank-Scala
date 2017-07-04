@@ -4,6 +4,8 @@ object Strings {
 
   def main(args: Array[String]) {
 
+    println(anagram("aaabbb"))
+
     println(theLoveletterMystery("heubsbn"))
 
     println(makingAnagrams("cde", "abc"))
@@ -67,5 +69,13 @@ object Strings {
 
     love(s, 0)
   }
+
+  def anagram(s: String) =
+    if (s.length % 2 != 0) -1
+    else {
+      val s1 = s.slice(0, s.length / 2)
+      val s2 = s.slice(s.length / 2, s.length)
+      ((s1.length + s2.length) - (s1.toList.intersect(s2.toList).size * 2)) / 2
+    }
 
 }
