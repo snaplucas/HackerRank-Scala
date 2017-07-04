@@ -4,6 +4,8 @@ object Strings {
 
   def main(args: Array[String]) {
 
+    println(gameOfThronesI("aabbcc"))
+
     println(if (hackerRankInAString("hacakaeararanaka".toList)) "YES" else "NO")
     println(if (hackerRankInAString("hhhhaaaaackkkkerrrrrrrrank".toList)) "YES" else "NO")
     println(if (hackerRankInAString("crackerhackerknar".toList)) "YES" else "NO")
@@ -44,5 +46,11 @@ object Strings {
       dis = s.intersect(dis)
     }
     println(dis.length)
+  }
+
+  def gameOfThronesI(lockDoor: String) = {
+    val mapped = lockDoor.toList.groupBy(identity).mapValues(_.size)
+    if (lockDoor.toList.size % 2 == 0) mapped.count(x => x._2 % 2 != 0) == 0
+    else mapped.count(x => x._2 % 2 != 0) == 1
   }
 }
