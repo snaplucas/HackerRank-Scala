@@ -78,4 +78,6 @@ object Strings {
       ((s1.length + s2.length) - (s1.toList.intersect(s2.toList).size * 2)) / 2
     }
 
+  def twoStrings(s1: String, s2: String) = println(if(s1.toList.intersect(s2.toList).nonEmpty) "YES" else "NO")
+
 }
