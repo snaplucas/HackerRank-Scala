@@ -4,6 +4,8 @@ object Strings {
 
   def main(args: Array[String]) {
 
+    println(makingAnagrams("cde", "abc"))
+
     println(gameOfThronesI("aabbcc"))
 
     println(if (hackerRankInAString("hacakaeararanaka".toList)) "YES" else "NO")
@@ -53,4 +55,6 @@ object Strings {
     if (lockDoor.toList.size % 2 == 0) mapped.count(x => x._2 % 2 != 0) == 0
     else mapped.count(x => x._2 % 2 != 0) == 1
   }
+
+  def makingAnagrams(s1: String, s2: String) = (s1.length + s2.length) - (s1.toList.intersect(s2.toList).size * 2)
 }
