@@ -4,6 +4,8 @@ object Strings {
 
   def main(args: Array[String]) {
 
+    println(theLoveletterMystery("heubsbn"))
+
     println(makingAnagrams("cde", "abc"))
 
     println(gameOfThronesI("aabbcc"))
@@ -57,4 +59,13 @@ object Strings {
   }
 
   def makingAnagrams(s1: String, s2: String) = (s1.length + s2.length) - (s1.toList.intersect(s2.toList).size * 2)
+
+  def theLoveletterMystery(s: String) = {
+    def love(s: String, acc: Int): Int =
+      if (s.isEmpty) acc
+      else love(s.drop(1).dropRight(1), acc + Math.abs(s.head - s.reverse.head))
+
+    love(s, 0)
+  }
+
 }
