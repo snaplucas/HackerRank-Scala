@@ -63,7 +63,7 @@ object Strings {
   }
 
   def gameOfThronesI(lockDoor: String) = {
-    val mapped = lockDoor.toList.groupBy(identity).mapValues(_.size)
+    val mapped = lockDoor.toList.groupBy(identity).mapValues(_.size)r
     if (lockDoor.toList.size % 2 == 0) mapped.count(x => x._2 % 2 != 0) == 0
     else mapped.count(x => x._2 % 2 != 0) == 1
   }
@@ -95,4 +95,6 @@ object Strings {
     val s2 = s1.groupBy(x => x._2).mapValues(_.size)
     s2.size == 1 || (s1.size <= 2 && s2.map(x => x._1 == 1).size <= 1)
   }
+
+  def separateTheNumbers(s: String) = {}
 }
