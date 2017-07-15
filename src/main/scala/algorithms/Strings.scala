@@ -4,27 +4,28 @@ object Strings {
 
   def main(args: Array[String]) {
 
-    sherlockAndTheValidString_2("aabbccddeefghi")
-    sherlockAndTheValidString_2("aaaa")
-    sherlockAndTheValidString_2("abdc")
-
-    val sherlock = "aabbccddeefghi".toList.groupBy(identity).mapValues(_.size).groupBy(x => x._2).mapValues(_.size)
-    println(sherlock)
-    println(sherlockAndTheValidString("hfchdkkbfifgbgebfaahijchgeeeiagkadjfcbekbdaifchkjfejckbiiihegacfbchdihkgbkbddgaefhkdgccjejjaajgijdkd"))
-
-    println(anagram("aaabbb"))
-
-    println(theLoveletterMystery("heubsbn"))
-
-    println(makingAnagrams("cde", "abc"))
-
-    println(gameOfThronesI("aabbcc"))
-
-    println(if (hackerRankInAString("hacakaeararanaka".toList)) "YES" else "NO")
-    println(if (hackerRankInAString("hhhhaaaaackkkkerrrrrrrrank".toList)) "YES" else "NO")
-    println(if (hackerRankInAString("crackerhackerknar".toList)) "YES" else "NO")
-
-    println(gemStones(List("abcd".toList, "abef".toList, "abjj".toList)))
+    println(generateList("91011".toList))
+    //    sherlockAndTheValidString_2("aabbccddeefghi")
+    //    sherlockAndTheValidString_2("aaaa")
+    //    sherlockAndTheValidString_2("abdc")
+    //
+    //    val sherlock = "aabbccddeefghi".toList.groupBy(identity).mapValues(_.size).groupBy(x => x._2).mapValues(_.size)
+    //    println(sherlock)
+    //    println(sherlockAndTheValidString("hfchdkkbfifgbgebfaahijchgeeeiagkadjfcbekbdaifchkjfejckbiiihegacfbchdihkgbkbddgaefhkdgccjejjaajgijdkd"))
+    //
+    //    println(anagram("aaabbb"))
+    //
+    //    println(theLoveletterMystery("heubsbn"))
+    //
+    //    println(makingAnagrams("cde", "abc"))
+    //
+    //    println(gameOfThronesI("aabbcc"))
+    //
+    //    println(if (hackerRankInAString("hacakaeararanaka".toList)) "YES" else "NO")
+    //    println(if (hackerRankInAString("hhhhaaaaackkkkerrrrrrrrank".toList)) "YES" else "NO")
+    //    println(if (hackerRankInAString("crackerhackerknar".toList)) "YES" else "NO")
+    //
+    //    println(gemStones(List("abcd".toList, "abef".toList, "abjj".toList)))
   }
 
   val indices = Vector('h', 'a', 'c', 'k', 'e', 'r', 'r', 'a', 'n', 'k')
@@ -96,5 +97,14 @@ object Strings {
     s2.size == 1 || (s1.size <= 2 && s2.map(x => x._1 == 1).size <= 1)
   }
 
-  def separateTheNumbers(s: String) = {}
+  //   val n = s.toList.map(_.toInt)
+
+  def generateList(s: List[Char]): List[Char] = s match {
+    case List() => List()
+    case x1 :: x2 :: y => if (x2 != 0 && x2 > x1) x1 :: x2 :: generateList(y) else x1 :: generateList(x2 :: y)
+  }
+
+  def separateTheNumbers(s: List[Int]) = for {i <- 1 until s.size
+                                              j <- 1 until i
+                                              if j - i == 1} yield true
 }
