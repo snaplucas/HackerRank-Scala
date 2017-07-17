@@ -3,13 +3,6 @@ package algorithms
 object Strings {
 
   def main(args: Array[String]) {
-    //    sherlockAndTheValidString_2("aabbccddeefghi")
-    //    sherlockAndTheValidString_2("aaaa")
-    //    sherlockAndTheValidString_2("abdc")
-    //
-    //    val sherlock = "aabbccddeefghi".toList.groupBy(identity).mapValues(_.size).groupBy(x => x._2).mapValues(_.size)
-    //    println(sherlock)
-    //    println(sherlockAndTheValidString("hfchdkkbfifgbgebfaahijchgeeeiagkadjfcbekbdaifchkjfejckbiiihegacfbchdihkgbkbddgaefhkdgccjejjaajgijdkd"))
 
     println(anagram("aaabbb"))
 
@@ -77,23 +70,16 @@ object Strings {
     love(s, 0)
   }
 
-  def anagram(s: String) =
-    if (s.length % 2 != 0) -1
-    else {
-      val s1 = s.slice(0, s.length / 2)
-      val s2 = s.slice(s.length / 2, s.length)
-      ((s1.length + s2.length) - (s1.toList.intersect(s2.toList).size * 2)) / 2
-    }
+  def anagram(s: String) = if (s.length % 2 != 0) -1
+  else {
+    val s1 = s.slice(0, s.length / 2)
+    val s2 = s.slice(s.length / 2, s.length)
+    ((s1.length + s2.length) - (s1.toList.intersect(s2.toList).size * 2)) / 2
+  }
 
   def twoStrings(s1: String, s2: String) = println(if (s1.toList.intersect(s2.toList).nonEmpty) "YES" else "NO")
 
   def sherlockAndTheValidString(s: String) = s.toList.groupBy(identity).mapValues(_.size).groupBy(x => x._2).mapValues(_.size).size <= 2
-
-  def sherlockAndTheValidString_2(s: String) = {
-    val s1 = s.toList.groupBy(identity).mapValues(_.size)
-    val s2 = s1.groupBy(x => x._2).mapValues(_.size)
-    s2.size == 1 || (s1.size <= 2 && s2.map(x => x._1 == 1).size <= 1)
-  }
 
   def separateTheNumbers(s: String): Option[String] = {
     for (i <- 1 to s.length / 2) {
@@ -110,7 +96,6 @@ object Strings {
     else if (rest.length < prev.length) false
     else if (rest.take(prev.length).toLong - prev.toLong == 1) checkSequence(rest.take(prev.length), rest.drop(prev.length))
     else if (rest.length > prev.length && rest.take(prev.length + 1).toLong - prev.toLong == 1) checkSequence(rest.take(prev.length + 1), rest.drop(prev.length + 1))
-
     else false
   }
 }
