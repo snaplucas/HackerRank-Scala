@@ -4,7 +4,7 @@ object Recursion {
 
   def main(args: Array[String]): Unit = {
 
-    println(stringCompression("abcaaabbb".toList, 0))
+    println(stringCompression("aaabaaaaccaaaaba".toList, 0))
 
     //    println(fibonacci(5))
     //    println(stringMinglingV2("abcde", "pqrst"))
@@ -40,9 +40,12 @@ object Recursion {
     else res.mkString("")
 
   def stringCompression(msg: List[Char], acc: Int): String = msg match {
-    case List(x) => x.toString
+    case List(x) =>
+      if (acc != 0) x.toString + (acc + 1).toString
+      else x.toString
     case xa :: xb :: x =>
-      if (xa == xb) acc + stringCompression(xb :: x, acc + 1)
+      if (xa == xb) stringCompression(xb :: x, acc + 1)
+      else if (acc != 0) xa + (acc + 1).toString + stringCompression(xb :: x, 0)
       else xa + stringCompression(xb :: x, 0)
   }
 }
