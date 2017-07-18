@@ -60,4 +60,15 @@ object Recursion {
     }
     check(txt.toList, StringBuilder.newBuilder)
   }
+  
+  def reduction(txt: String): String = {
+    def check(chars: List[Char], acc: StringBuilder): String = {
+      if (chars.isEmpty)
+        return acc.toString()
+
+      val span = chars.span(_ == chars.head)
+      if(!acc.contains(chars.head)) check(span._2, acc.append(chars.head)) else check(span._2, acc)
+    }
+    check(txt.toList, StringBuilder.newBuilder)
+  }
 }
