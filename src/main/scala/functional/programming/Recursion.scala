@@ -48,4 +48,16 @@ object Recursion {
       else if (acc != 0) xa + (acc + 1).toString + stringCompression(xb :: x, 0)
       else xa + stringCompression(xb :: x, 0)
   }
+
+  def stringCompression_V2(txt: String): String = {
+    def check(chars: List[Char], acc: StringBuilder): String = {
+      if (chars.isEmpty)
+        return acc.toString()
+
+      val span = chars.span(_ == chars.head)
+      val comp = if (span._1.size == 1) chars.head.toString else chars.head + "" + span._1.size
+      check(span._2, acc.append(comp))
+    }
+    check(txt.toList, StringBuilder.newBuilder)
+  }
 }
