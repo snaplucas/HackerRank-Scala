@@ -5,11 +5,11 @@ object Recursion {
   def main(args: Array[String]): Unit = {
     prefixCompression("abcdefpr", "abcpqr")
 
-//    println(stringCompression("aaabaaaaccaaaaba".toList, 0))
+    println(stringCompression("aaabaaaaccaaaaba".toList, 0))
 
-    //    println(fibonacci(5))
-    //    println(stringMinglingV2("abcde", "pqrst"))
-    //    println(stringPermute("abcdpqrs".toList))
+    println(fibonacci(5))
+    println(stringMinglingV2("abcde", "pqrst"))
+    println(stringPermute("abcdpqrs".toList))
   }
 
   def gcd(x: Int, y: Int): Int = if (y == 0) x else gcd(y, x % y)
@@ -77,7 +77,7 @@ object Recursion {
 
   def prefixCompression(x: String, y: String) = {
     def compression(xx: List[Char], yy: List[Char], acc: StringBuilder): Any = {
-      if (xx.nonEmpty && yy.nonEmpty && xx.head == yy.head) compression(xx.tail, yy.tail,acc.append(xx.head))
+      if (xx.nonEmpty && yy.nonEmpty && xx.head == yy.head) compression(xx.tail, yy.tail, acc.append(xx.head))
       else {
         println(acc.length + " " + acc.toString)
         println(xx.size + " " + xx.mkString)
