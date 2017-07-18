@@ -3,8 +3,9 @@ package functional.programming
 object Recursion {
 
   def main(args: Array[String]): Unit = {
+    prefixCompression("abcdefpr", "abcpqr")
 
-    println(stringCompression("aaabaaaaccaaaaba".toList, 0))
+//    println(stringCompression("aaabaaaaccaaaaba".toList, 0))
 
     //    println(fibonacci(5))
     //    println(stringMinglingV2("abcde", "pqrst"))
@@ -58,17 +59,32 @@ object Recursion {
       val comp = if (span._1.size == 1) chars.head.toString else chars.head + "" + span._1.size
       check(span._2, acc.append(comp))
     }
+
     check(txt.toList, StringBuilder.newBuilder)
   }
-  
+
   def reduction(txt: String): String = {
     def check(chars: List[Char], acc: StringBuilder): String = {
       if (chars.isEmpty)
         return acc.toString()
 
       val span = chars.span(_ == chars.head)
-      if(!acc.contains(chars.head)) check(span._2, acc.append(chars.head)) else check(span._2, acc)
+      if (!acc.contains(chars.head)) check(span._2, acc.append(chars.head)) else check(span._2, acc)
     }
+
     check(txt.toList, StringBuilder.newBuilder)
+  }
+
+  def prefixCompression(x: String, y: String) = {
+    def compression(xx: List[Char], yy: List[Char], acc: StringBuilder): Any = {
+      if (xx.nonEmpty && yy.nonEmpty && xx.head == yy.head) compression(xx.tail, yy.tail,acc.append(xx.head))
+      else {
+        println(acc.length + " " + acc.toString)
+        println(xx.size + " " + xx.mkString)
+        println(yy.size + " " + yy.mkString)
+      }
+    }
+
+    compression(x.toList, y.toList, StringBuilder.newBuilder)
   }
 }
