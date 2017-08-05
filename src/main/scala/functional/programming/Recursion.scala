@@ -102,4 +102,13 @@ object Recursion {
 
     sequence(balls.toList, 0, 0)
   }
+
+  def theSumOfPowers(X: Int, N: Int, cur: Int): Int = {
+    val value = X - scala.math.pow(cur, N).toInt
+    value match {
+      case 0 => 1
+      case j if j < 0 => 0
+      case _ => theSumOfPowers(value, N, cur + 1) + theSumOfPowers(X, N, cur + 1)
+    }
+  }
 }
