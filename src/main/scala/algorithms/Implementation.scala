@@ -12,4 +12,6 @@ object Implementation {
     val xx = if (y + z <= x) y + z else x
     b * xx + w * yy
   }
+
+  def dayOfTheProgrammer(year: Int) = {}
 }
