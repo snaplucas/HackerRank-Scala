@@ -83,10 +83,9 @@ object Strings {
 
   def separateTheNumbers(s: String): Option[String] = {
     for (i <- 1 to s.length / 2) {
-      if (s.take(i)(0) == '0') return None
+      if (s.take(i)(0) == '0') None
 
-      if (checkSequence(s.take(i), s.drop(i)))
-        return Some(s.take(i))
+      if (checkSequence(s.take(i), s.drop(i))) Some(s.take(i))
     }
     None
   }

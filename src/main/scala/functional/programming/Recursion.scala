@@ -22,14 +22,9 @@ object Recursion {
     else fibonacci(x - 1) + fibonacci(x - 2)
   }
 
-  def pascal(c: Int, r: Int): Int =
-    if (c == 0 || r == c) 1
-    else pascal(c, r - 1) + pascal(c - 1, r - 1)
+  def pascal(c: Int, r: Int): Int = if (c == 0 || r == c) 1 else pascal(c, r - 1) + pascal(c - 1, r - 1)
 
-  def stringMingling(p: String, q: String, acc: String = ""): String = {
-    if (p.isEmpty) acc
-    else stringMingling(p.tail, q.tail, acc + p.head + q.head)
-  }
+  def stringMingling(p: String, q: String, acc: String = ""): String = if (p.isEmpty) acc else stringMingling(p.tail, q.tail, acc + p.head + q.head)
 
   def stringMinglingV2(p: String, q: String) = p.toList.zip(q.toList).flatMap(x => x._1 + "" + x._2).mkString
 
@@ -67,9 +62,7 @@ object Recursion {
 
   def reduction(txt: String): String = {
     def check(chars: List[Char], acc: StringBuilder): String = {
-      if (chars.isEmpty)
-        return acc.toString()
-
+      if (chars.isEmpty) acc.toString()
       val span = chars.span(_ == chars.head)
       if (!acc.contains(chars.head)) check(span._2, acc.append(chars.head)) else check(span._2, acc)
     }
