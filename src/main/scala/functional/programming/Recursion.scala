@@ -26,7 +26,7 @@ object Recursion {
 
   def stringMingling(p: String, q: String, acc: String = ""): String = if (p.isEmpty) acc else stringMingling(p.tail, q.tail, acc + p.head + q.head)
 
-  def stringMinglingV2(p: String, q: String) = p.toList.zip(q.toList).flatMap(x => x._1 + "" + x._2).mkString
+  def stringMinglingV2(p: String, q: String): String = p.toList.zip(q.toList).flatMap(x => x._1 + "" + x._2).mkString
 
   def stringPermute(s: List[Char]): String = s match {
     case Nil => ""
@@ -70,7 +70,7 @@ object Recursion {
     check(txt.toList, StringBuilder.newBuilder)
   }
 
-  def prefixCompression(x: String, y: String) = {
+  def prefixCompression(x: String, y: String): Any = {
     def compression(xx: List[Char], yy: List[Char], acc: StringBuilder): Any = {
       if (xx.nonEmpty && yy.nonEmpty && xx.head == yy.head) compression(xx.tail, yy.tail, acc.append(xx.head))
       else {
@@ -83,7 +83,7 @@ object Recursion {
     compression(x.toList, y.toList, StringBuilder.newBuilder)
   }
 
-  def sequenceFullColors(balls: String) = {
+  def sequenceFullColors(balls: String): Boolean = {
     def sequence(ballsList: List[Char], redGreen: Int, yellowBlue: Int): Boolean = {
       if (ballsList.isEmpty) redGreen == 0 && yellowBlue == 0
       else if (ballsList.head == 'R') redGreen <= 1 && sequence(ballsList.tail, redGreen + 1, yellowBlue)
