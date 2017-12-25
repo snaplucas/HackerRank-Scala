@@ -97,4 +97,11 @@ object Strings {
     else if (rest.length > prev.length && rest.take(prev.length + 1).toLong - prev.toLong == 1) checkSequence(rest.take(prev.length + 1), rest.drop(prev.length + 1))
     else false
   }
+
+  def weighUniformString(s: String, n: Int): Unit = {
+    val englishLetters = ('a' to 'z').toList.sorted
+    val uniforms = s.toList.groupBy(identity).mapValues(_.size)
+    val weightsMap = uniforms.map(x => x._2 * englishLetters.indexOf(x._1 + 1))
+    weightsMap.exists(x => x % n == 0)
+  }
 }
