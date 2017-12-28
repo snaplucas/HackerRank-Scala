@@ -3,19 +3,18 @@ package algorithms
 object Strings {
 
   def main(args: Array[String]) {
-    println(chocolateFeast(12,4,4))
 
-    //    println(theLoveletterMystery("heubsbn"))
-    //
-    //    println(makingAnagrams("cde", "abc"))
-    //
-    //    println(gameOfThronesI("aabbcc"))
-    //
-    //    println(if (hackerRankInAString("hacakaeararanaka".toList)) "YES" else "NO")
-    //    println(if (hackerRankInAString("hhhhaaaaackkkkerrrrrrrrank".toList)) "YES" else "NO")
-    //    println(if (hackerRankInAString("crackerhackerknar".toList)) "YES" else "NO")
-    //
-    //    println(gemStones(List("abcd".toList, "abef".toList, "abjj".toList)))
+        println(theLoveletterMystery("heubsbn"))
+
+        println(makingAnagrams("cde", "abc"))
+
+        println(gameOfThronesI("aabbcc"))
+
+        println(if (hackerRankInAString("hacakaeararanaka".toList)) "YES" else "NO")
+        println(if (hackerRankInAString("hhhhaaaaackkkkerrrrrrrrank".toList)) "YES" else "NO")
+        println(if (hackerRankInAString("crackerhackerknar".toList)) "YES" else "NO")
+
+        println(gemStones(List("abcd".toList, "abef".toList, "abjj".toList)))
   }
 
   val indices = Vector('h', 'a', 'c', 'k', 'e', 'r', 'r', 'a', 'n', 'k')
@@ -102,13 +101,5 @@ object Strings {
     val uniforms = s.toList.groupBy(identity).mapValues(_.size)
     val weightsMap = uniforms.map(x => x._2 * englishLetters.indexOf(x._1 + 1))
     weightsMap.exists(x => x % n == 0)
-  }
-
-  def chocolateFeast(n: Int, c: Int, m: Int) {
-    val bought = n / c
-    val bonus1 = bought / m
-    val bonus2 = bought % m
-    val bonus3 = (bonus1 + bonus2) / m
-    println(bought + bonus1 + bonus3)
   }
 }

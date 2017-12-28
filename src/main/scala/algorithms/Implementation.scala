@@ -3,7 +3,9 @@ package algorithms
 object Implementation {
 
   def main(args: Array[String]): Unit = {
-    println(taumAndBday(3, 3, 1, 9, 2))
+    println(chocolateFeast(43203, 60, 5))
+
+//    println(taumAndBday(3, 3, 1, 9, 2))
 
   }
 
@@ -18,5 +20,10 @@ object Implementation {
     if (year == 1918) println("26.09." + year)
     else if (bi) println("12.09." + year)
     else println("13.09." + year)
+  }
+
+  def chocolateFeast(money: Int, cost: Int, extra: Int): Int = {
+    val boughtCandies = money / cost
+    boughtCandies + (boughtCandies - 1) / (extra - 1)
   }
 }
