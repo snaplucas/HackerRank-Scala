@@ -5,7 +5,9 @@ object Implementation {
   def main(args: Array[String]): Unit = {
     println(chocolateFeast(43203, 60, 5))
 
-//    println(taumAndBday(3, 3, 1, 9, 2))
+    println(taumAndBday(3, 3, 1, 9, 2))
+    val rounded = gradingStudents(List(73, 67, 38, 33))
+    rounded.foreach(x => println(x))
 
   }
 
@@ -26,4 +28,7 @@ object Implementation {
     val boughtCandies = money / cost
     boughtCandies + (boughtCandies - 1) / (extra - 1)
   }
+
+  def gradingStudents(grades: List[Int]) = grades.map(x => if (x >= 38 && (5 - x % 5) < 3) x + (5 - x % 5) else x)
+
 }
