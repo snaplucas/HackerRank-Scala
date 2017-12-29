@@ -13,8 +13,8 @@ object Implementation {
     //    val lista = List(10, 20, 30, 40, 50)
     //    lista.filter(x => x > 20).map(y => y * 2).foreach(z => println(z))
 
-    println(betweenTwoSets(Array(1), Array(100)))
-
+    //    println(betweenTwoSets(Array(1), Array(100)))
+    println(migratoryBirds(Array(1, 4, 4, 4, 5, 3)))
   }
 
   def taumAndBday(b: Long, w: Long, x: Long, y: Long, z: Long): Long = {
@@ -42,6 +42,10 @@ object Implementation {
                         if b.forall(y => y % x == 0)} yield x).toSet
 
     (for {z <- factors if a.forall(x => z % x == 0)} yield z).size
+  }
+
+  def migratoryBirds(birds: Array[Int]) = {
+    birds.groupBy(identity).maxBy(x => x._2.length)._1
   }
 
 }
