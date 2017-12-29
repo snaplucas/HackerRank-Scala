@@ -3,11 +3,17 @@ package algorithms
 object Implementation {
 
   def main(args: Array[String]): Unit = {
-    println(chocolateFeast(43203, 60, 5))
+    //    println(chocolateFeast(43203, 60, 5))
+    //
+    //    println(taumAndBday(3, 3, 1, 9, 2))
+    //    val rounded = gradingStudents(List(73, 67, 38, 33))
+    //    rounded.foreach(x => println(x))
 
-    println(taumAndBday(3, 3, 1, 9, 2))
-    val rounded = gradingStudents(List(73, 67, 38, 33))
-    rounded.foreach(x => println(x))
+    //
+    //    val lista = List(10, 20, 30, 40, 50)
+    //    lista.filter(x => x > 20).map(y => y * 2).foreach(z => println(z))
+
+    println(betweenTwoSets(Array(1), Array(100)))
 
   }
 
@@ -30,5 +36,12 @@ object Implementation {
   }
 
   def gradingStudents(grades: List[Int]) = grades.map(x => if (x >= 38 && (5 - x % 5) < 3) x + (5 - x % 5) else x)
+
+  def betweenTwoSets(a: Array[Int], b: Array[Int]) = {
+    val factors = (for {x <- 1 until 101
+                        if b.forall(y => y % x == 0)} yield x).toSet
+
+    (for {z <- factors if a.forall(x => z % x == 0)} yield z).size
+  }
 
 }
