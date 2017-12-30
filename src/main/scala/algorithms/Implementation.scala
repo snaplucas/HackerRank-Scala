@@ -44,9 +44,8 @@ object Implementation {
     (for {z <- factors if a.forall(x => z % x == 0)} yield z).size
   }
 
-  def migratoryBirds(birds: Array[Int]): Int = {
-    birds.groupBy(identity).maxBy(x => x._2.length)._1
-  }
+  def migratoryBirds(birds: Array[Int]): Int = birds.groupBy(identity).maxBy(x => x._2.length)._1
+
 
   def countingValleys(s: String): Int = {
     def count(s: List[Char], up: Int, v: Int): Int = {

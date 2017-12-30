@@ -3,18 +3,17 @@ package algorithms
 object Strings {
 
   def main(args: Array[String]) {
-
-        println(theLoveletterMystery("heubsbn"))
-
-        println(makingAnagrams("cde", "abc"))
-
-        println(gameOfThronesI("aabbcc"))
-
-        println(if (hackerRankInAString("hacakaeararanaka".toList)) "YES" else "NO")
-        println(if (hackerRankInAString("hhhhaaaaackkkkerrrrrrrrank".toList)) "YES" else "NO")
-        println(if (hackerRankInAString("crackerhackerknar".toList)) "YES" else "NO")
-
-        println(gemStones(List("abcd".toList, "abef".toList, "abjj".toList)))
+//        println(theLoveletterMystery("heubsbn"))
+//
+//        println(makingAnagrams("cde", "abc"))
+//
+//        println(gameOfThronesI("aabbcc"))
+//
+//        println(if (hackerRankInAString("hacakaeararanaka".toList)) "YES" else "NO")
+//        println(if (hackerRankInAString("hhhhaaaaackkkkerrrrrrrrank".toList)) "YES" else "NO")
+//        println(if (hackerRankInAString("crackerhackerknar".toList)) "YES" else "NO")
+//
+//        println(gemStones(List("abcd".toList, "abef".toList, "abjj".toList)))
   }
 
   val indices = Vector('h', 'a', 'c', 'k', 'e', 'r', 'r', 'a', 'n', 'k')
@@ -96,10 +95,16 @@ object Strings {
     else false
   }
 
-  def weighUniformString(s: String, n: Int): Unit = {
+  //TODO: fix
+  def weighTUniformString(s: String, n: Int): Unit = {
     val englishLetters = ('a' to 'z').toList.sorted
     val uniforms = s.toList.groupBy(identity).mapValues(_.size)
     val weightsMap = uniforms.map(x => x._2 * englishLetters.indexOf(x._1 + 1))
     weightsMap.exists(x => x % n == 0)
+  }
+
+  def bigSorting(arr: Array[String]): Array[String] =  {
+    val first = arr.map(x => x.toInt).sorted
+    first.map(x => x.toString)
   }
 }
