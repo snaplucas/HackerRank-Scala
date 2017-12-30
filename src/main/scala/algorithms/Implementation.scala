@@ -15,7 +15,7 @@ object Implementation {
 
     //    println(betweenTwoSets(Array(1), Array(100)))
     //    println(migratoryBirds(Array(1, 4, 4, 4, 5, 3)))
-    println(countingValleys("DDUUDDUDUUUD"))
+    println(beautifulTriplets(3, List(1, 2, 4, 5, 7, 8, 10)))
 
   }
 
@@ -37,16 +37,14 @@ object Implementation {
     boughtCandies + (boughtCandies - 1) / (extra - 1)
   }
 
-  def gradingStudents(grades: List[Int]) = grades.map(x => if (x >= 38 && (5 - x % 5) < 3) x + (5 - x % 5) else x)
+  def gradingStudents(grades: List[Int]): List[Int] = grades.map(x => if (x >= 38 && (5 - x % 5) < 3) x + (5 - x % 5) else x)
 
-  def betweenTwoSets(a: Array[Int], b: Array[Int]) = {
-    val factors = (for {x <- 1 until 101
-                        if b.forall(y => y % x == 0)} yield x).toSet
-
+  def betweenTwoSets(a: Array[Int], b: Array[Int]): Int = {
+    val factors = (for {x <- 1 until 101 if b.forall(y => y % x == 0)} yield x).toSet
     (for {z <- factors if a.forall(x => z % x == 0)} yield z).size
   }
 
-  def migratoryBirds(birds: Array[Int]) = {
+  def migratoryBirds(birds: Array[Int]): Int = {
     birds.groupBy(identity).maxBy(x => x._2.length)._1
   }
 
@@ -59,6 +57,26 @@ object Implementation {
     }
 
     count(s.toList, 0, 0)
+  }
+
+  def beautifulTriplets(d: Int, arr: List[Int]): Int = {
+    def beautiful(list: List[Int], acc: Int): Int = {
+      if (list.isEmpty) acc
+      else {
+        var number = list.head
+        var tri = 0
+        for (x <- list.tail) {
+          if (number - x == d) {
+            number = x
+            tri = tri + 1
+          }
+        }
+        val aux = if (tri > 1) 1 else 0
+        beautiful(list.tail, acc + aux)
+      }
+    }
+
+    beautiful(arr.reverse, 0)
   }
 
 }

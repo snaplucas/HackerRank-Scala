@@ -8,17 +8,18 @@
 //
 //weightsMap.exists(x => x % 8 == 0)
 
-def isPalindrome(s: List[Char]): Boolean = s match {
-  case Nil => true
-  case List(_) => true
-  case list => list.head == list.last && isPalindrome(list.tail.init)
-}
+//def isPalindrome(s: List[Char]): Boolean = s match {
+//  case Nil => true
+//  case List(_) => true
+//  case list => list.head == list.last && isPalindrome(list.tail.init)
+//}
+//
+//def palindromeIndex(s: String): Int = {
+//  def palindrome(s: List[Char], index: Int): Int = {
+//    if (isPalindrome(s)) index
+//    else palindrome(s, index + 1)
+//  }
+//
+//  palindrome(s.toList, -1)
+//}
 
-def palindromeIndex(s: String): Int = {
-  def palindrome(s: List[Char], index: Int): Int = {
-    if (isPalindrome(s)) index
-    else palindrome(s, index + 1)
-  }
-
-  palindrome(s.toList, -1)
-}
