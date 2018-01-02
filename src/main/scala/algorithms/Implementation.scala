@@ -78,7 +78,7 @@ object Implementation {
   }
 
   def ACMICPCTeam(list: List[String]): Unit = {
-    val pairs = list.tails.map {
+    val pairs = list.tails.flatMap {
       case x :: rest => rest.map(y => x.toList.zip(y))
         .map(y => y.count(x => x._1 == '1' || x._2 == '1'))
       case _ => List()
