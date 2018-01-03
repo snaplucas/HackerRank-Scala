@@ -107,15 +107,28 @@ object Strings {
   }
 
   //TODO: fix
-  def weighTUniformString(s: String, n: Int): Unit = {
+  def weightUniformString(s: String, n: Int): Unit = {
     val englishLetters = ('a' to 'z').toList.sorted
     val uniforms = s.toList.groupBy(identity).mapValues(_.size)
     val weightsMap = uniforms.map(x => x._2 * englishLetters.indexOf(x._1 + 1))
     weightsMap.exists(x => x % n == 0)
   }
 
+  //TODO: fix
   def bigSorting(arr: Array[String]): Array[String] = {
     val first = arr.map(x => x.toInt).sorted
     first.map(x => x.toString)
+  }
+
+  def encryption(s: String): String = {
+    def blah(s: String, t: List[List[Char]]): String = {
+      if (t.exists(x => x.nonEmpty))
+        blah(s + " " + t.filter(y => y.nonEmpty).map(x => x.head).mkString, t.filter(y => y.nonEmpty).map(y => y.tail))
+      else s
+    }
+
+    val k = scala.math.sqrt(s.length).ceil.toInt
+    val t = s.toList.grouped(k).toList
+    blah("", t).trim
   }
 }
