@@ -3,17 +3,17 @@ package algorithms
 object Strings {
 
   def main(args: Array[String]) {
-//        println(theLoveletterMystery("heubsbn"))
-//
-//        println(makingAnagrams("cde", "abc"))
-//
-//        println(gameOfThronesI("aabbcc"))
-//
-//        println(if (hackerRankInAString("hacakaeararanaka".toList)) "YES" else "NO")
-//        println(if (hackerRankInAString("hhhhaaaaackkkkerrrrrrrrank".toList)) "YES" else "NO")
-//        println(if (hackerRankInAString("crackerhackerknar".toList)) "YES" else "NO")
-//
-//        println(gemStones(List("abcd".toList, "abef".toList, "abjj".toList)))
+    //        println(theLoveletterMystery("heubsbn"))
+    //
+    //        println(makingAnagrams("cde", "abc"))
+    //
+    //        println(gameOfThronesI("aabbcc"))
+    //
+    //        println(if (hackerRankInAString("hacakaeararanaka".toList)) "YES" else "NO")
+    //        println(if (hackerRankInAString("hhhhaaaaackkkkerrrrrrrrank".toList)) "YES" else "NO")
+    //        println(if (hackerRankInAString("crackerhackerknar".toList)) "YES" else "NO")
+    //
+    //        println(gemStones(List("abcd".toList, "abef".toList, "abjj".toList)))
   }
 
   val indices = Vector('h', 'a', 'c', 'k', 'e', 'r', 'r', 'a', 'n', 'k')
@@ -76,7 +76,18 @@ object Strings {
 
   def twoStrings(s1: String, s2: String) = println(if (s1.toList.intersect(s2.toList).nonEmpty) "YES" else "NO")
 
-  def sherlockAndTheValidString(s: String) = s.toList.groupBy(identity).mapValues(_.size).groupBy(x => x._2).mapValues(_.size).size <= 2
+  def sherlockAndTheValidString(s: String): Unit = {
+    val sherlock_1 = s.toList.groupBy(identity)
+      .mapValues(_.size)
+      .groupBy(x => x._2)
+      .mapValues(_.size).size == 1
+
+    val sherlock_2 = s.toList.groupBy(identity)
+      .mapValues(_.size)
+      .count(x => x._2 == 1) == 1
+
+    if (sherlock_1 || sherlock_2) println("YES") else println("NO")
+  }
 
   def separateTheNumbers(s: String): Option[String] = {
     for (i <- 1 to s.length / 2) {
@@ -103,7 +114,7 @@ object Strings {
     weightsMap.exists(x => x % n == 0)
   }
 
-  def bigSorting(arr: Array[String]): Array[String] =  {
+  def bigSorting(arr: Array[String]): Array[String] = {
     val first = arr.map(x => x.toInt).sorted
     first.map(x => x.toString)
   }
