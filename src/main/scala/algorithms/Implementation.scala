@@ -88,4 +88,8 @@ object Implementation {
     println(pairs.count(x => x == pairs.max))
   }
 
+  def serviceLane(width: Array[Int], i: Int, j: Int): Unit = {
+    println(width.slice(i, j + 1).min)
+  }
+
 }

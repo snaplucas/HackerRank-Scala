@@ -131,4 +131,14 @@ object Strings {
     val t = s.toList.grouped(k).toList
     blah("", t).trim
   }
+
+  def countWords() {
+    val textFile = List("Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
+      " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s")
+    val counts = textFile.flatMap(line => line.split(" ")).groupBy(identity).mapValues(_.size)
+    print(counts)
+  }
+
+  def teste(f: Int => Int, a: Int, b: Int) = 1
+
 }
