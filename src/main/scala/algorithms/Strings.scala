@@ -138,7 +138,4 @@ object Strings {
     val counts = textFile.flatMap(line => line.split(" ")).groupBy(identity).mapValues(_.size)
     print(counts)
   }
-
-  def teste(f: Int => Int, a: Int, b: Int) = 1
-
 }

@@ -3,19 +3,6 @@ package algorithms
 object Implementation {
 
   def main(args: Array[String]): Unit = {
-    //    println(chocolateFeast(43203, 60, 5))
-    //
-    //    println(taumAndBday(3, 3, 1, 9, 2))
-    //    val rounded = gradingStudents(List(73, 67, 38, 33))
-    //    rounded.foreach(x => println(x))
-
-    //
-    //    val lista = List(10, 20, 30, 40, 50)
-    //    lista.filter(x => x > 20).map(y => y * 2).foreach(z => println(z))
-
-    //    println(betweenTwoSets(Array(1), Array(100)))
-    //    println(migratoryBirds(Array(1, 4, 4, 4, 5, 3)))
-    println(beautifulTriplets(3, List(1, 2, 4, 5, 7, 8, 10)))
 
   }
 
@@ -90,6 +77,22 @@ object Implementation {
 
   def serviceLane(width: Array[Int], i: Int, j: Int): Unit = {
     println(width.slice(i, j + 1).min)
+  }
+
+  def appendAndDelete(s: String, t: String, k: Int): String = {
+    val intersect = (s zip t).takeWhile(x => x._1 == x._2).map(_._1).mkString
+    val diff = s.length - intersect.length
+    val sucess = if (intersect.nonEmpty) appAndDel(intersect, t, k - diff)
+    else k - s.length >= t.length
+    if ((s.equals(t) && k - s.length >= t.length) || sucess) "Yes"
+    else "No"
+  }
+
+  private def appAndDel(s: String, t: String, k: Int): Boolean = {
+    if (t.length == 1 && k - s.length > 1) true
+    else if (k == 0) s.length == t.length
+    else if (s.length >= t.length) appAndDel(s.toList.tail.mkString, t, k - 1)
+    else appAndDel(s + "_", t, k - 1)
   }
 
 }
