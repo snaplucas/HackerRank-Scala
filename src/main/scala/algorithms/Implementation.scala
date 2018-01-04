@@ -95,4 +95,6 @@ object Implementation {
     else appAndDel(s + "_", t, k - 1)
   }
 
+  def findDigits(n: Int): Int = n.toString.toList.map(y => y.asDigit).count(x => x != 0 && n % x == 0)
+
 }
