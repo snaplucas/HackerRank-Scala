@@ -3,6 +3,7 @@ package algorithms
 object Implementation {
 
   def main(args: Array[String]): Unit = {
+    kangoroo(43, 2, 70, 2)
 
   }
 
@@ -96,5 +97,10 @@ object Implementation {
   }
 
   def findDigits(n: Int): Int = n.toString.toList.map(y => y.asDigit).count(x => x != 0 && n % x == 0)
+
+  def kangoroo(x1: Int, x2: Int, v1: Int, v2: Int): Unit = {
+    if (x1 < x2 && v1 < v2) println("NO")
+    else println(if ((x1 - x2) % (v2 - v1) == 0) "YES" else "NO")
+  }
 
 }
