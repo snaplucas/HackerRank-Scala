@@ -3,17 +3,6 @@ package algorithms
 object Strings {
 
   def main(args: Array[String]) {
-    //        println(theLoveletterMystery("heubsbn"))
-    //
-    //        println(makingAnagrams("cde", "abc"))
-    //
-    //        println(gameOfThronesI("aabbcc"))
-    //
-    //        println(if (hackerRankInAString("hacakaeararanaka".toList)) "YES" else "NO")
-    //        println(if (hackerRankInAString("hhhhaaaaackkkkerrrrrrrrank".toList)) "YES" else "NO")
-    //        println(if (hackerRankInAString("crackerhackerknar".toList)) "YES" else "NO")
-    //
-    //        println(gemStones(List("abcd".toList, "abef".toList, "abjj".toList)))
   }
 
   val indices = Vector('h', 'a', 'c', 'k', 'e', 'r', 'r', 'a', 'n', 'k')
@@ -137,5 +126,16 @@ object Strings {
       " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s")
     val counts = textFile.flatMap(line => line.split(" ")).groupBy(identity).mapValues(_.size)
     print(counts)
+  }
+
+  def palidromeIndex(s: String): Int = {
+    def index(m: List[Char], n: List[Char]): Int = {
+      if (m.head.equals(n.head)) index(m.tail, n.tail)
+      else if (m.tail.head.equals(n.head)) s.length - n.size
+      else m.size
+    }
+
+    if (s.toList.equals(s.toList.reverse)) -1
+    else index(s.toList, s.toList.reverse)
   }
 }
