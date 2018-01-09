@@ -9,7 +9,6 @@ object CodingTest {
     else 0
   }
 
-
   def delta_encode(array: Array[Int]): Array[Int] = {
     def delta(list: List[Int]): List[Int] = {
       if (list.tail.isEmpty) List()
@@ -34,8 +33,7 @@ object CodingTest {
       if (map.exists(x => x._1 == h)) map(h) = map(h).intValue() + total
       else map += (h -> total)
     }
-    val another = map.toList.sortWith((x, y) => x._2 > y._2)
-    another.map(x => x._1).toArray
+    map.toList.sortWith((x, y) => x._2 > y._2).map(x => x._1).toArray
   }
 
 }
