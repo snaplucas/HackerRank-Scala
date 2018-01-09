@@ -2,8 +2,10 @@ package algorithms
 
 object Strings {
 
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit = {
+
   }
+
 
   val indices = Vector('h', 'a', 'c', 'k', 'e', 'r', 'r', 'a', 'n', 'k')
 
