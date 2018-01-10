@@ -103,4 +103,10 @@ object Implementation {
     else println(if ((x1 - x2) % (v2 - v1) == 0) "YES" else "NO")
   }
 
+  def manasaAndStones(n: Int, a: Int, b: Int): Array[Int] = {
+    List.fill(n - 1)(List(a, b))
+      .flatten.combinations(n - 1)
+      .map(x => x.sum)
+      .toList.sorted.toArray
+  }
 }
