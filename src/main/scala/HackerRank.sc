@@ -1,4 +1,4 @@
-val s = "breakfast beach".split(" ")
-val t = "breakfast breakfast beach beach".split(" ")
+val s = "hackerhappy"
+val t = "hackerrank"
 
-val n = t.count(x => s.contains(x))
+val intersect = (s zip t).takeWhile(x => x._1 == x._2).map(_._1).mkString

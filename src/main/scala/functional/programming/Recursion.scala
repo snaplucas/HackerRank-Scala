@@ -3,15 +3,28 @@ package functional.programming
 object Recursion {
 
   def main(args: Array[String]): Unit = {
-    println(if (sequenceFullColors("RYBG")) "True" else "False")
+    //    println(if (sequenceFullColors("RYBG")) "True" else "False")
+    //
+    //    prefixCompression("abcdefpr", "abcpqr")
+    //
+    //    println(stringCompression("aaabaaaaccaaaaba".toList, 0))
+    //
+    //    println(fibonacci(5))
+    //    println(stringMinglingV2("abcde", "pqrst"))
+    //    println(stringPermute("abcdpqrs".toList))
+    //    println(threePlusOne(22))
 
-    prefixCompression("abcdefpr", "abcpqr")
+    println((1 to 100000).map(x => threePlusOne(x)).max)
+  }
 
-    println(stringCompression("aaabaaaaccaaaaba".toList, 0))
+  def threePlusOne(n: Long): Long = {
+    def plus(n: Long, acc: Long): Long = {
+      if (n == 1) acc
+      else if (n % 2 == 0) plus(n / 2, acc + 1)
+      else plus((n * 3) + 1, acc + 1)
+    }
 
-    println(fibonacci(5))
-    println(stringMinglingV2("abcde", "pqrst"))
-    println(stringPermute("abcdpqrs".toList))
+    plus(n, 1)
   }
 
   def gcd(x: Int, y: Int): Int = if (y == 0) x else gcd(y, x % y)
