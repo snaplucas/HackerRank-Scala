@@ -4,7 +4,6 @@ object Implementation {
 
   def main(args: Array[String]): Unit = {
     kangoroo(43, 2, 70, 2)
-
   }
 
   def taumAndBday(b: Long, w: Long, x: Long, y: Long, z: Long): Long = {

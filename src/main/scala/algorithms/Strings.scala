@@ -6,7 +6,6 @@ object Strings {
 
   }
 
-
   val indices = Vector('h', 'a', 'c', 'k', 'e', 'r', 'r', 'a', 'n', 'k')
 
   def hackerRankInAString(s: List[Char]) = {

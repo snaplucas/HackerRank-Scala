@@ -3,17 +3,6 @@ package functional.programming
 object Recursion {
 
   def main(args: Array[String]): Unit = {
-    //    println(if (sequenceFullColors("RYBG")) "True" else "False")
-    //
-    //    prefixCompression("abcdefpr", "abcpqr")
-    //
-    //    println(stringCompression("aaabaaaaccaaaaba".toList, 0))
-    //
-    //    println(fibonacci(5))
-    //    println(stringMinglingV2("abcde", "pqrst"))
-    //    println(stringPermute("abcdpqrs".toList))
-    //    println(threePlusOne(22))
-
     println((1 to 100000).map(x => threePlusOne(x)).max)
   }
 
