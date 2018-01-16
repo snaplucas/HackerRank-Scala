@@ -3,7 +3,21 @@ package functional.programming
 object Recursion {
 
   def main(args: Array[String]): Unit = {
-    println((1 to 100000).map(x => threePlusOne(x)).max)
+    rotateString("abc")
+    //    println((1 to 100000).map(x => threePlusOne(x)).max)
+  }
+
+  def rotateString(s: String): Unit = {
+    def rotate(chars: List[Char], n: Int): Unit = {
+      if (n != 0) {
+        print(chars.tail.mkString + chars.head + " ")
+        rotate(chars.tail ::: List(chars.head), n - 1)
+      } else {
+        println()
+      }
+    }
+
+    rotate(s.toList, s.length)
   }
 
   def threePlusOne(n: Long): Long = {

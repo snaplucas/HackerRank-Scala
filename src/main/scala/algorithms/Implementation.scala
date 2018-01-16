@@ -3,7 +3,7 @@ package algorithms
 object Implementation {
 
   def main(args: Array[String]): Unit = {
-    kangoroo(43, 2, 70, 2)
+    staircase(10)
   }
 
   def staircase(n: Int): Unit = {
