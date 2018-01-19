@@ -15,4 +15,6 @@ object AdHoc {
     rotate(s.toList, s.length)
   }
 
+  def remomoveDuplicates(s: String): String = s.distinct
+
 }
