@@ -8,7 +8,7 @@ object Strings {
 
   val indices = Vector('h', 'a', 'c', 'k', 'e', 'r', 'r', 'a', 'n', 'k')
 
-  def hackerRankInAString(s: List[Char]) = {
+  def hackerRankInAString(s: List[Char]): Boolean = {
     def hackerrank(s: List[Char], acc: Int): Boolean = {
       if (s.isEmpty) acc == 10
       else if (s.head == indices(acc)) acc == 9 || hackerrank(s.tail, acc + 1)
@@ -20,7 +20,7 @@ object Strings {
 
   val alphas = Vector('a', 'b', 'c', 'd')
 
-  def gemStones(stones: List[List[Char]]) = {
+  def gemStones(stones: List[List[Char]]): Int = {
     def gem(stones: List[List[Char]], indice: Int, acc: Int): Int = {
       if (stones.isEmpty) acc
       else if (stones.forall(s => s.contains(alphas(indice)))) gem(stones.tail, indice + 1, acc + 1)
@@ -41,15 +41,15 @@ object Strings {
     println(dis.length)
   }
 
-  def gameOfThronesI(lockDoor: String) = {
+  def gameOfThronesI(lockDoor: String): Boolean = {
     val mapped = lockDoor.toList.groupBy(identity).mapValues(_.size)
     if (lockDoor.toList.size % 2 == 0) mapped.count(x => x._2 % 2 != 0) == 0
     else mapped.count(x => x._2 % 2 != 0) == 1
   }
 
-  def makingAnagrams(s1: String, s2: String) = (s1.length + s2.length) - (s1.toList.intersect(s2.toList).size * 2)
+  def makingAnagrams(s1: String, s2: String): Int = (s1.length + s2.length) - (s1.toList.intersect(s2.toList).size * 2)
 
-  def theLoveletterMystery(s: String) = {
+  def theLoveletterMystery(s: String): Int = {
     def love(s: String, acc: Int): Int =
       if (s.isEmpty) acc
       else love(s.drop(1).dropRight(1), acc + Math.abs(s.head - s.reverse.head))
@@ -57,14 +57,14 @@ object Strings {
     love(s, 0)
   }
 
-  def anagram(s: String) = if (s.length % 2 != 0) -1
+  def anagram(s: String): Int = if (s.length % 2 != 0) -1
   else {
     val s1 = s.slice(0, s.length / 2)
     val s2 = s.slice(s.length / 2, s.length)
     ((s1.length + s2.length) - (s1.toList.intersect(s2.toList).size * 2)) / 2
   }
 
-  def twoStrings(s1: String, s2: String) = println(if (s1.toList.intersect(s2.toList).nonEmpty) "YES" else "NO")
+  def twoStrings(s1: String, s2: String): Unit = println(if (s1.toList.intersect(s2.toList).nonEmpty) "YES" else "NO")
 
   def sherlockAndTheValidString(s: String): Unit = {
     val sherlock_1 = s.toList.groupBy(identity)
