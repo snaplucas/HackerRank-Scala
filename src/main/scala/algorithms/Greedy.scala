@@ -17,7 +17,7 @@ object Greedy {
     toys(prices.sorted, 0, 0)
   }
 
-  def marcsCakewalk(calorie: Array[Int]) = {
+  def marcsCakewalk(calorie: Array[Int]): Long = {
     def cake(calorie: Array[Int], acc: Int): Double = {
       if (calorie.isEmpty) 0
       else calorie.head * Math.pow(2, acc) + cake(calorie.tail, acc + 1)
