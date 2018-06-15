@@ -3,18 +3,18 @@ package data.structures
 object Arrays {
 
   def main(args: Array[String]): Unit = {
-    val stdin = scala.io.StdIn
-    val a = stdin.readLine.split(" ").map(_.trim.toInt)
-    //     val rotations = if (n > s.size) n % s.size else n
-    println(leftRotation(List(1, 2, 3, 4, 5), 4).toString())
+    println(leftRotation(List(41, 73, 89, 7, 10, 1, 59, 58, 84, 77, 77, 97, 58, 1, 86, 58, 26, 10, 86, 51), 10))
 
   }
 
 
   def arraysDS(arr: Array[Int]): Unit = arr.reverse.foreach(a => print(a + " "))
 
-  def leftRotation(s: List[Int], n: Int): List[Int] = {
+  def leftRotation(s: List[Int], n: Int) = {
     if (n == 0) s
-    else leftRotation(s.tail ::: List(s.head), n - 1)
+    else {
+      val (b, c) = s.splitAt(n)
+      (c ++ b) mkString " "
+    }
   }
 }
