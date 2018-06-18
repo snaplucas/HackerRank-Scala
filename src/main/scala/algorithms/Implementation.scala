@@ -3,7 +3,7 @@ package algorithms
 object Implementation {
 
   def main(args: Array[String]): Unit = {
-    staircase(10)
+    print(howManyGames(20, 3, 6, 85))
   }
 
   def staircase(n: Int): Unit = {
@@ -119,5 +119,15 @@ object Implementation {
       .flatten.combinations(n - 1)
       .map(x => x.sum)
       .toList.sorted.toArray
+  }
+
+  def howManyGames(p: Int, d: Int, m: Int, s: Int): Int = {
+    def halloween(p: Int, d: Int, m: Int, s: Int, total: Int): Int = {
+      if (p > s) total
+      else if (p - d > m) halloween(p - d, d, m, s - p, total + 1)
+      else halloween(m, d, m, s - p, total + 1)
+    }
+
+    halloween(p, d, m, s, 0)
   }
 }
