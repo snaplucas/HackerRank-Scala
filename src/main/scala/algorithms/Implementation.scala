@@ -122,12 +122,12 @@ object Implementation {
   }
 
   def howManyGames(p: Int, d: Int, m: Int, s: Int): Int = {
-    def halloween(p: Int, d: Int, m: Int, s: Int, total: Int): Int = {
+    def halloween(p: Int, s: Int, total: Int): Int = {
       if (p > s) total
-      else if (p - d > m) halloween(p - d, d, m, s - p, total + 1)
-      else halloween(m, d, m, s - p, total + 1)
+      else if (p - d > m) halloween(p - d, s - p, total + 1)
+      else halloween(m, s - p, total + 1)
     }
 
-    halloween(p, d, m, s, 0)
+    halloween(p, s, 0)
   }
 }
