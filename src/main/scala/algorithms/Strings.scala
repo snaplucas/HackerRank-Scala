@@ -2,6 +2,10 @@ package algorithms
 
 object Strings {
 
+  def main(args: Array[String]): Unit = {
+    strongPassword(11, "#HackerRank")
+  }
+
   val indices = Vector('h', 'a', 'c', 'k', 'e', 'r', 'r', 'a', 'n', 'k')
 
   def hackerRankInAString(s: List[Char]): Boolean = {
@@ -134,5 +138,21 @@ object Strings {
 
     if (s.toList.equals(s.toList.reverse)) -1
     else index(s.toList, s.toList.reverse)
+  }
+
+  def strongPassword(n: Int, password: String) = {
+    val numbers = "0123456789"
+    val lower_case = "abcdefghijklmnopqrstuvwxyz"
+    val upper_case = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    val special_characters = "!@#$%^&*()-+"
+
+    var count = 0
+    count = if (password.toList.intersect(numbers.toList).isEmpty) count + 1 else count
+    count = if (password.toList.intersect(lower_case.toList).isEmpty) count + 1 else count
+    count = if (password.toList.intersect(upper_case.toList).isEmpty) count + 1 else count
+    count = if (password.toList.intersect(special_characters.toList).isEmpty) count + 1 else count
+
+    math.max(count, 6 - n)
+
   }
 }
