@@ -141,16 +141,17 @@ object Strings {
   }
 
   def strongPassword(n: Int, password: String) = {
-    val numbers = "0123456789"
-    val lower_case = "abcdefghijklmnopqrstuvwxyz"
-    val upper_case = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    val special_characters = "!@#$%^&*()-+"
+    val numbers = "0123456789".toList
+    val lower_case = "abcdefghijklmnopqrstuvwxyz".toList
+    val upper_case = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toList
+    val special_characters = "!@#$%^&*()-+".toList
 
     var count = 0
-    count = if (password.toList.intersect(numbers.toList).isEmpty) count + 1 else count
-    count = if (password.toList.intersect(lower_case.toList).isEmpty) count + 1 else count
-    count = if (password.toList.intersect(upper_case.toList).isEmpty) count + 1 else count
-    count = if (password.toList.intersect(special_characters.toList).isEmpty) count + 1 else count
+    val passList = password.toList
+    count = if (passList.intersect(numbers).isEmpty) count + 1 else count
+    count = if (passList.intersect(lower_case).isEmpty) count + 1 else count
+    count = if (passList.intersect(upper_case).isEmpty) count + 1 else count
+    count = if (passList.intersect(special_characters).isEmpty) count + 1 else count
 
     math.max(count, 6 - n)
 
