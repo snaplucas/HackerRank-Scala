@@ -43,7 +43,7 @@ object CodingTest {
     (x :: z).toArray
   }
 
-  def getPosition(s: List[Char]) = {
+  def getPosition(s: List[Char]): List[Int] = {
     def position(s: List[Char], acc: Int): List[Int] = {
       if (s.isEmpty) List()
       else if (s.head == '1') acc :: position(s.tail, acc + 1)
@@ -54,14 +54,14 @@ object CodingTest {
   }
 
 
-  def closestNumbers(numbers: Array[Int]) = {
+  def closestNumbers(numbers: Array[Int]): Unit = {
     val s = numbers.sorted
     val m = if (s.length < 2) 0 else s.tail.zip(s).map(x => x._1 - x._2).min
     val list = closestNumbersList(numbers, m).grouped(2).toList
     list.foreach(x => println(x.head + " " + x(1)))
   }
 
-  def closestNumbersList(numbers: Array[Int], diff: Int) = {
+  def closestNumbersList(numbers: Array[Int], diff: Int): List[Int] = {
     def close(n: List[Int]): List[Int] = {
       if (n.tail.isEmpty) List()
       else if (Math.abs(n.head - n.tail.head) == diff) List(n.head, n.tail.head) ::: close(n.tail)
