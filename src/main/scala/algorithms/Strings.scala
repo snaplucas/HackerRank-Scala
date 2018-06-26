@@ -82,7 +82,6 @@ object Strings {
   def separateTheNumbers(s: String): Option[String] = {
     for (i <- 1 to s.length / 2) {
       if (s.take(i)(0) == '0') None
-
       if (checkSequence(s.take(i), s.drop(i))) Some(s.take(i))
     }
     None
@@ -140,7 +139,7 @@ object Strings {
     else index(s.toList, s.toList.reverse)
   }
 
-  def strongPassword(n: Int, password: String) = {
+  def strongPassword(n: Int, password: String): Int = {
     val numbers = "0123456789".toList
     val lower_case = "abcdefghijklmnopqrstuvwxyz".toList
     val upper_case = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toList

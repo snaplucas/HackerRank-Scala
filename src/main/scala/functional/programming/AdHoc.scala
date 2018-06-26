@@ -7,9 +7,8 @@ object AdHoc {
       if (n != 0) {
         print(chars.tail.mkString + chars.head + " ")
         rotate(chars.tail ::: List(chars.head), n - 1)
-      } else {
-        println()
-      }
+      } else println()
+
     }
 
     rotate(s.toList, s.length)
